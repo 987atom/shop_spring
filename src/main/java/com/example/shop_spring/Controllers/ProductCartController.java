@@ -28,24 +28,13 @@ public class ProductCartController {
         this.productService = productService;
     }
 
-//    @GetMapping("/get")
-//    public List<ProductCartEntity> getAll() {
-//        return productCartService.findeAll();
-//    }
     @GetMapping("/get")
     public List<ProductCartResponse> getAll() {
-
         List<ProductCartResponse> responseList = new ArrayList<>();
 
         for (ProductCartEntity cart : productCartService.findeAll()) {
-//            ProductCartEntity cart = productCartService.findeByID(i);
             if (cart != null) {
-                ProductCartResponse response = new ProductCartResponse();
-                response.setId(cart.getId());
-                response.setProducts(cart.getProducts().getName());
-                response.setCarts(cart.getCarts().getNumber());
-
-                responseList.add(response);
+                responseList.add(getByID(cart.getId()));
             }
         }
 
@@ -53,27 +42,29 @@ public class ProductCartController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<ProductCartResponse> getByID(@PathVariable Long id) {
+    public ProductCartResponse getByID(@PathVariable Long id) {
         ProductCartEntity cart = productCartService.findeByID(id);
         ProductCartResponse response = new ProductCartResponse();
         response.setId(cart.getId());
         response.setProducts(cart.getProducts().getName());
         response.setCarts(cart.getCarts().getNumber());
 
-        return ResponseEntity.ok(response);
+        return response;
     }
 
 
 //    @PostMapping("/post")
 //    public ProductCartEntity post(@RequestParam Long idProduct, @RequestParam Long idCart) {
     @PostMapping("/post/{idProduct}/{idCart}")
-    public ProductCartEntity post(@PathVariable Long idProduct, @PathVariable Long idCart) {
+    public ProductCartResponse post(@PathVariable Long idProduct, @PathVariable Long idCart) {
         ProductEntity product = productService.findeByID(idProduct);
         CartEntity cart = cartService.findeByID(idCart);
 
         ProductCartEntity productCart = new ProductCartEntity(product, cart);
 
-        return productCartService.save(productCart);
+        productCartService.save(productCart);
+
+        return getByID(productCart.getId());
     }
 
     @PutMapping("/put/{id}/{idProduct}/{idCart}")
