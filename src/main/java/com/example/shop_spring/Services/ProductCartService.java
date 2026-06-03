@@ -38,12 +38,4 @@ public class ProductCartService {
 
         return productCartRepository.save(productCartEntity);
     }
-
-    public Long getProductCartItemCount(Long userId) {
-        return productCartRepository.countById(userId);
-    }
-
-    public Long getTotalItemCount() {
-        return productCartRepository.count();
-    }
 }
