@@ -1,13 +1,16 @@
 package com.example.shop_spring.Controllers;
 
+import com.example.shop_spring.Controllers.Responses.ProductCartResponse;
 import com.example.shop_spring.Entitys.CartEntity;
 import com.example.shop_spring.Entitys.ProductCartEntity;
 import com.example.shop_spring.Entitys.ProductEntity;
 import com.example.shop_spring.Services.CartService;
 import com.example.shop_spring.Services.ProductCartService;
 import com.example.shop_spring.Services.ProductService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,14 +28,39 @@ public class ProductCartController {
         this.productService = productService;
     }
 
+//    @GetMapping("/get")
+//    public List<ProductCartEntity> getAll() {
+//        return productCartService.findeAll();
+//    }
     @GetMapping("/get")
-    public List<ProductCartEntity> getAll() {
-        return productCartService.findeAll();
+    public List<ProductCartResponse> getAll() {
+
+        List<ProductCartResponse> responseList = new ArrayList<>();
+
+        for (ProductCartEntity cart : productCartService.findeAll()) {
+//            ProductCartEntity cart = productCartService.findeByID(i);
+            if (cart != null) {
+                ProductCartResponse response = new ProductCartResponse();
+                response.setId(cart.getId());
+                response.setProducts(cart.getProducts().getName());
+                response.setCarts(cart.getCarts().getNumber());
+
+                responseList.add(response);
+            }
+        }
+
+        return responseList;
     }
 
     @GetMapping("/get/{id}")
-    public ProductCartEntity getByID(@PathVariable Long id) {
-        return productCartService.findeByID(id);
+    public ResponseEntity<ProductCartResponse> getByID(@PathVariable Long id) {
+        ProductCartEntity cart = productCartService.findeByID(id);
+        ProductCartResponse response = new ProductCartResponse();
+        response.setId(cart.getId());
+        response.setProducts(cart.getProducts().getName());
+        response.setCarts(cart.getCarts().getNumber());
+
+        return ResponseEntity.ok(response);
     }
 
 
