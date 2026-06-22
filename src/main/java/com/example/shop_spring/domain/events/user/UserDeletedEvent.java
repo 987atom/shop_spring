@@ -16,7 +16,6 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 public class UserDeletedEvent extends DomainEvent{
     private static final String EVENT_VERSION = "1.0";
-
     private final Long userId;
     private final UserEventType eventType;
 
