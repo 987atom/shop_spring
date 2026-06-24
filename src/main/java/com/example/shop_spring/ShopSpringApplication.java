@@ -1,12 +1,14 @@
 package com.example.shop_spring;
 
 import com.example.shop_spring.kafka.Services.ProducerService;
+import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +16,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@Enabled
 public class ShopSpringApplication {
 
     private final ProducerService producer;
@@ -62,7 +65,6 @@ public class ShopSpringApplication {
     }
 
     @Autowired
+    @Lazy
     private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
-
-//    private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry = new KafkaListenerEndpointRegistry();
 }

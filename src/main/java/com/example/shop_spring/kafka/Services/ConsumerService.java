@@ -14,7 +14,8 @@ import java.io.IOException;
 public class ConsumerService {
     private final Logger logger = LoggerFactory.getLogger(ConsumerService.class);
 
-    @KafkaListener(id = "myConsumer", topics = "users", groupId = "spring-boot", autoStartup = "false")
+//    @KafkaListener(id = "myConsumer", topics = "users", groupId = "spring-boot", autoStartup = "false")
+    @KafkaListener(id = "myConsumer", topics = "users", groupId = "spring-boot", autoStartup = "true")
     public void listen(String value,
                        @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
                        @Header(KafkaHeaders.RECEIVED_KEY) String key) {
