@@ -1,6 +1,6 @@
 package com.example.shop_spring;
 
-import com.example.shop_spring.kafka.Services.Producer.ProducerService;
+import com.example.shop_spring.kafka.services.producer.ProducerService;
 import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
