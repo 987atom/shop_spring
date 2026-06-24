@@ -1,11 +1,9 @@
-package com.example.shop_spring.Controllers;
+package com.example.shop_spring.app.Controllers;
 
-import com.example.shop_spring.Controllers.Responses.ProductCartResponse;
-import com.example.shop_spring.Entitys.CartEntity;
-import com.example.shop_spring.Entitys.ProductCartEntity;
-import com.example.shop_spring.Entitys.UsersEntity;
-import com.example.shop_spring.Services.CartService;
-import org.springframework.http.ResponseEntity;
+import com.example.shop_spring.app.Entitys.CartEntity;
+import com.example.shop_spring.app.Entitys.ProductCartEntity;
+import com.example.shop_spring.app.Entitys.UsersEntity;
+import com.example.shop_spring.app.Services.CartService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

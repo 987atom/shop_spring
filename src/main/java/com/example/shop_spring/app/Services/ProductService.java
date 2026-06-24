@@ -1,7 +1,7 @@
-package com.example.shop_spring.Services;
+package com.example.shop_spring.app.Services;
 
-import com.example.shop_spring.Entitys.ProductEntity;
-import com.example.shop_spring.Repositorys.ProductRepository;
+import com.example.shop_spring.app.Entitys.ProductEntity;
+import com.example.shop_spring.app.Repositorys.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

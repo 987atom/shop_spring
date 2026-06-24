@@ -1,9 +1,8 @@
-package com.example.shop_spring.Controllers;
+package com.example.shop_spring.app.Controllers;
 
-import com.example.shop_spring.Entitys.ProductCartEntity;
-import com.example.shop_spring.Entitys.ProductEntity;
-import com.example.shop_spring.Services.ProductService;
-import org.springframework.stereotype.Controller;
+import com.example.shop_spring.app.Entitys.ProductCartEntity;
+import com.example.shop_spring.app.Entitys.ProductEntity;
+import com.example.shop_spring.app.Services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

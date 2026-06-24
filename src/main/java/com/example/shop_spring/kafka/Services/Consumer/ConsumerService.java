@@ -1,14 +1,11 @@
-package com.example.shop_spring.kafka.Services;
+package com.example.shop_spring.kafka.Services.Consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-
-import java.io.IOException;
 
 @Service
 public class ConsumerService {

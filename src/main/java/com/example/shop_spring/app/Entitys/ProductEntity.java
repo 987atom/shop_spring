@@ -1,4 +1,4 @@
-package com.example.shop_spring.Entitys;
+package com.example.shop_spring.app.Entitys;
 
 import jakarta.persistence.*;
 

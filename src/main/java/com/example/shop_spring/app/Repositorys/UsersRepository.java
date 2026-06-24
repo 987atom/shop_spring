@@ -1,6 +1,6 @@
-package com.example.shop_spring.Repositorys;
+package com.example.shop_spring.app.Repositorys;
 
-import com.example.shop_spring.Entitys.UsersEntity;
+import com.example.shop_spring.app.Entitys.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsersRepository extends JpaRepository<UsersEntity, Long> {

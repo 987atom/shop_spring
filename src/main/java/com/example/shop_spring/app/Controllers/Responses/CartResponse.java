@@ -1,7 +1,7 @@
-package com.example.shop_spring.Controllers.Responses;
+package com.example.shop_spring.app.Controllers.Responses;
 
-import com.example.shop_spring.Entitys.ProductCartEntity;
-import com.example.shop_spring.Entitys.UsersEntity;
+import com.example.shop_spring.app.Entitys.ProductCartEntity;
+import com.example.shop_spring.app.Entitys.UsersEntity;
 
 import java.util.List;
 

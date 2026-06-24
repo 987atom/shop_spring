@@ -1,18 +1,15 @@
 package com.example.shop_spring;
 
-import com.example.shop_spring.kafka.Services.ProducerService;
+import com.example.shop_spring.kafka.Services.Producer.ProducerService;
 import jdk.jfr.Enabled;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.WebApplicationType;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -27,7 +24,8 @@ public class ShopSpringApplication {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(ShopSpringApplication.class);
-        application.setWebApplicationType(WebApplicationType.NONE);
+//        application.setWebApplicationType(WebApplicationType.NONE); это что бы в консоли без web части запускался
+        SpringApplication.run(ShopSpringApplication.class, args);
         application.run(args);
     }
 

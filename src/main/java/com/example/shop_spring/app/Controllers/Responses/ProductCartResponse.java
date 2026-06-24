@@ -1,7 +1,4 @@
-package com.example.shop_spring.Controllers.Responses;
-
-import com.example.shop_spring.Entitys.CartEntity;
-import com.example.shop_spring.Entitys.ProductEntity;
+package com.example.shop_spring.app.Controllers.Responses;
 
 public class ProductCartResponse {
 
